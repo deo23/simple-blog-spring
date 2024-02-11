@@ -39,8 +39,8 @@ public class CommentService {
     }
 	
 	public List<Comment> searchComments(Long postId, String query) {
-	    String formattedQuery = "%" + query + "%";
-	    return commentJpaRepository.findByPostIdAndCommentContainingOrderByRegDateDesc(postId, formattedQuery);
+		List<Comment> comments = commentJpaRepository.findByPostIdAndCommentContainingOrderByRegDateDesc(postId, query);
+		return comments;
 	}
 
 }

@@ -65,6 +65,7 @@ public class CommentController {
     @GetMapping("/comments/search")
     public List<Comment> searchComments(@RequestParam("post_id") Long postId, @RequestParam("query") String query) {
     	logger.info("Search Comments: Post ID = {}, Query = {}", postId, query);
-    	return commentService.searchComments(postId, query);
+    	List<Comment> comments = commentService.searchComments(postId, query);
+    	return comments;
     }
 }
